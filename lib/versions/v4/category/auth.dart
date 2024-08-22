@@ -20,7 +20,7 @@ class AuthV4 extends Category<V4> {
   ///
   /// ## Implementation
   /// ```
-  /// Map result = await tmdb.v4.auth.createRequestToken('your API Read access token');
+  /// Map result = await tmdb.v4.auth.createRequestToken('http://www.themoviedb.org/');
   /// ```
   ///
   /// ## Result
@@ -33,7 +33,7 @@ class AuthV4 extends Category<V4> {
   /// }
   /// ```
   Future<Map> createRequestToken({
-    String redirectTo = 'http://www.themoviedb.org/',
+    String? redirectTo,
   }) {
     final accessToken = _v._tmdb._apiKeys._apiReadAccessTokenv4;
 
@@ -45,7 +45,9 @@ class AuthV4 extends Category<V4> {
       '$_endPoint/request_token',
       method: HttpMethod.post,
       postHeaders: postHeaders,
-      postBody: {},
+      postBody: {
+        'redirect_to': redirectTo,
+      },
     );
   }
 
@@ -113,7 +115,10 @@ class AuthV4 extends Category<V4> {
     return _v._query(
       '$_endPoint/access_token',
       method: HttpMethod.delete,
-      deleteHeaders: {'Content-Type': 'application/json;charset=utf-8', 'Authorization': 'Bearer $v4ApiToken'},
+      deleteHeaders: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'Authorization': 'Bearer $v4ApiToken'
+      },
       deleteBody: {'access_token': accessToken},
     );
   }
