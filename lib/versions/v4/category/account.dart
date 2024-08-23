@@ -145,8 +145,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: ,
-  ///first_air_date.asc, first_air_date.desc, name.asc, name.desc, vote_average.asc, vote_average.desc*
+  ///- `language`: Defaults to en-US
   ///
   ///## Implementation
   ///```
@@ -187,7 +186,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'created_at.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -199,7 +198,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
@@ -213,8 +212,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: , created_at.asc,
-  /// created_at.desc, release_date.asc, release_date.desc, title.asc, title.desc, vote_average.asc, vote_average.desc*
+  ///- `language`: Defaults to en-US
   ///
   ///## Implementation
   ///```
@@ -258,7 +256,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'created_at.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -270,7 +268,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
@@ -284,9 +282,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: , first_air_date.asc, first_air_date.desc,
-  ///name.asc, name.desc, vote_average.asc, vote_average.desc, release_date.asc, release_date.desc, title.asc, title.desc*
-  ///
+  ///- `language`: Defaults to en-US  ///
   ///## Implementation
   ///```
   ///Map result = await tmdb.v4.account.getTvShowRecommendations(ACCESS_TOKEN, USER_TMDB_ID);
@@ -325,7 +321,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'first_air_date.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -337,7 +333,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
@@ -351,9 +347,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: created_at.asc,
-  ///created_at.desc, release_date.asc, release_date.desc, title.asc, title.desc, vote_average.asc, vote_average.desc*
-  ///
+  ///- `language`: Defaults to en-US  ///
   ///## Implementation
   ///```
   ///Map result = await tmdb.v4.account.getMovieWatchList(ACCESS_TOKEN, USER_TMDB_ID);
@@ -392,7 +386,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'created_at.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -404,7 +398,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
@@ -418,9 +412,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: , first_air_date.asc,
-  ///first_air_date.desc, name.asc, name.desc, vote_average.asc, vote_average.desc*
-  ///
+  ///- `language`: Defaults to en-US  ///
   ///
   ///## Implementation
   ///```
@@ -465,7 +457,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'first_air_date.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -477,7 +469,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
@@ -491,9 +483,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: , created_at.asc, created_at.desc,
-  ///release_date.asc, release_date.desc, title.asc, title.desc, vote_average.asc, vote_average.desc*
-  ///
+  ///- `language`: Defaults to en-US  ///
   ///
   ///## Implementation
   ///```
@@ -541,7 +531,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'created_at.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -553,7 +543,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
@@ -567,9 +557,7 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: , first_air_date.asc,
-  ///first_air_date.desc, name.asc, name.desc, vote_average.asc, vote_average.desc*
-  ///
+  ///- `language`: Defaults to en-US  ///
   ///
   ///## Implementation
   ///```
@@ -615,7 +603,7 @@ class AccountV4 extends Category<V4> {
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'first_air_date.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -627,7 +615,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 }
