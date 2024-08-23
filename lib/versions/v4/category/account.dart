@@ -78,12 +78,11 @@ class AccountV4 extends Category<V4> {
   ///
   ///- `page`:Specify which page to query. *minimum: 1 maximum: 1000 default: 1*
   ///
-  ///- `sortListBy`:Choose a sort option for the list of results. *Allowed Values: , created_at.asc,
-  ///created_at.desc, release_date.asc, release_date.desc, title.asc, title.desc, vote_average.asc, vote_average.desc*
+  ///- `language`: Defaults to en-US
   ///
   ///## Implementation
   ///```
-  ///Map result = await tmdb.v4.account.getFavoritMovies(ACCESS_TOKEN, USER_TMDB_ID);
+  ///Map result = await tmdb.v4.account.getFavoriteMovies(ACCESS_TOKEN, USER_TMDB_ID);
   ///```
   ///## Result
   ///```
@@ -116,11 +115,11 @@ class AccountV4 extends Category<V4> {
   ///}
   ///```
   ///
-  Future<Map> getFavoritMovies(
+  Future<Map> getFavoriteMovies(
     String accessToken,
     String accountId, {
     int page = 1,
-    String sortBy = 'created_at.asc',
+    String language = 'en-US',
   }) {
     if (page < 1 || page > 1000) {
       throw ArgumentError('page < 1 || page > 1000 is true');
@@ -132,7 +131,7 @@ class AccountV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['page=$page', 'sort_by=$sortBy'],
+      optionalQueries: ['page=$page', 'language=$language'],
     );
   }
 
