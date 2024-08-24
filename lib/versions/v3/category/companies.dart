@@ -63,7 +63,7 @@ class Companies extends Category<V3> {
   /// }
   /// ```
   Future<Map> getAlternativeNames(int companyId) {
-    return _v._query('$_endPoint/$companyId');
+    return _v._query('$_endPoint/$companyId/alternative_names');
   }
 
   /// Get a companies logos by id.
