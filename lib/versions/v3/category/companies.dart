@@ -112,6 +112,6 @@ class Companies extends Category<V3> {
   /// For more information about how SVG's and PNG's can be used, take a read through
   /// [this](https://developers.themoviedb.org/3/getting-started/images).
   Future<Map> getImages(int companyId) {
-    return _v._query('$_endPoint/$companyId');
+    return _v._query('$_endPoint/$companyId/images');
   }
 }
