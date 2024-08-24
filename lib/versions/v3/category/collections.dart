@@ -44,7 +44,7 @@ class Collections extends Category<V3> {
   Future<Map> getImages(int collectionId, {String? language}) {
     return _v._query(
       '$_endPoint/$collectionId/images',
-      optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
+      optionalQueries: ['language=${language ?? ''}'],
     );
   }
 
