@@ -137,6 +137,58 @@ class V3 extends Version {
     }
   }
 
+  /// Queries with the given parameters and expects a List response.
+  ///
+  /// By default, the method type is [HttpMethod.get]
+  Future<List> _queryList(
+    String endPoint, {
+    HttpMethod method = HttpMethod.get,
+    List<String>? optionalQueries,
+    Map<String, String>? postBody,
+    Map<String, String>? deleteBody,
+    Map<String, String>? postHeaders,
+  }) async {
+    var query = 'api_key=${_tmdb._apiKeys._apiKeyV3}';
+    query = _optionalQueries(optionalQueries, query);
+
+    // Constructing the URL
+    final url = Uri(
+      scheme: 'https',
+      host: _tmdb._baseUrl,
+      path: '$_apiVersion/$endPoint',
+      query: query,
+    );
+
+    // Log to console
+    _tmdb._logger.urlLog(url.toString());
+    final dio = _tmdb._dio;
+
+    // Getting data from URL
+    try {
+      late Response<List> dioResponse;
+
+      if (method == HttpMethod.post) {
+        dioResponse = await dio.postUri<List>(url, data: postBody);
+      } else if (method == HttpMethod.delete) {
+        dioResponse = await dio.deleteUri<List>(url, data: deleteBody);
+      } else {
+        dioResponse = await dio.getUri<List>(url);
+      }
+
+      // Return the response data
+      return dioResponse.data!;
+    } catch (e) {
+      _tmdb._logger.errorLog(
+        'Exception while making a request. Exception = {$e}',
+      );
+      _tmdb._logger.infoLog(
+        'You can create an issue at https://github.com/RatakondalaArun/tmdb_api/issues',
+      );
+      // If error is unknown, rethrow it
+      rethrow;
+    }
+  }
+
   String _optionalQueries(List<String>? queries, String currentQuery) {
     return (queries == null || queries.isEmpty)
         ? currentQuery

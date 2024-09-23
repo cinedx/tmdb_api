@@ -15,11 +15,11 @@ class Configuration extends Category<V3> {
   /// ## Implementation
   ///
   /// ```
-  /// Map result = await tmdb.v3.configurations.getCountries();
+  /// List result = await tmdb.v3.configurations.getCountries();
   /// ```
   ///
-  Future<Map> getCountries({String? language}) {
-    return _v._query(
+  Future<List> getCountries({String? language}) {
+    return _v._queryList(
       '$_endPoint/countries',
       optionalQueries: ['language=${language ?? _v._tmdb.defaultLanguage}'],
     );
@@ -32,11 +32,11 @@ class Configuration extends Category<V3> {
   /// ## Implementation
   ///
   /// ```
-  /// Map result = await tmdb.v3.configurations.getJobs();
+  /// List result = await tmdb.v3.configurations.getJobs();
   /// ```
   ///
-  Future<Map> getJobs() {
-    return _v._query('$_endPoint/jobs');
+  Future<List> getJobs() {
+    return _v._queryList('$_endPoint/jobs');
   }
 
   /// Get the list of languages (ISO 639-1 tags) used throughout TMDB.
@@ -46,10 +46,10 @@ class Configuration extends Category<V3> {
   /// ## Implementation
   ///
   /// ```
-  /// Map result = await tmdb.v3.configurations.getLanguages();
+  /// List result = await tmdb.v3.configurations.getLanguages();
   /// ```
   ///
-  Future<Map> getLanguages() {
-    return _v._query('$_endPoint/languages');
+  Future<List> getLanguages() {
+    return _v._queryList('$_endPoint/languages');
   }
 }
