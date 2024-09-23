@@ -10,6 +10,7 @@ class V3 extends Version {
   late Certification _certification;
   late Changes _changes;
   late Collections _collections;
+  late Configuration _configuration;
   late Find _find;
   late Geners _geners;
   late Genres _genres;
@@ -36,6 +37,7 @@ class V3 extends Version {
   Certification get certification => _certification;
   Changes get changes => _changes;
   Collections get collections => _collections;
+  Configuration get configuration => _configuration;
   Find get find => _find;
   @Deprecated('This method is a typo. Use getPouplar() instead')
   Geners get geners => _geners;
@@ -65,6 +67,7 @@ class V3 extends Version {
     _certification = Certification(this);
     _changes = Changes(this);
     _collections = Collections(this);
+    _configuration = Configuration(this);
     _find = Find(this);
     _geners = Geners(this);
     _genres = Genres(this);
@@ -135,6 +138,8 @@ class V3 extends Version {
   }
 
   String _optionalQueries(List<String>? queries, String currentQuery) {
-    return (queries == null || queries.isEmpty) ? currentQuery : '$currentQuery&${queries.join('&')}';
+    return (queries == null || queries.isEmpty)
+        ? currentQuery
+        : '$currentQuery&${queries.join('&')}';
   }
 }

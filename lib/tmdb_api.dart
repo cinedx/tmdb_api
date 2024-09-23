@@ -68,6 +68,7 @@ part 'versions/v3/category/authentication.dart';
 part 'versions/v3/category/certification.dart';
 part 'versions/v3/category/changes.dart';
 part 'versions/v3/category/collections.dart';
+part 'versions/v3/category/configuration.dart';
 part 'versions/v3/category/companies.dart';
 part 'versions/v3/category/credit.dart';
 part 'versions/v3/category/discover.dart';
