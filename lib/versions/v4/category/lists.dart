@@ -92,6 +92,7 @@ class ListsV4 extends Category<V4> {
     String description = ' ',
     bool isPublic = true,
     String iso6391 = 'en',
+    String iso31661 = 'US',
   }) {
     return _v._query(
       _endPoint,
@@ -105,6 +106,7 @@ class ListsV4 extends Category<V4> {
         'description': description,
         'public': '$isPublic',
         'iso_639_1': iso6391,
+        'iso_3166_1': iso31661,
       },
     );
   }
@@ -488,7 +490,10 @@ class ListsV4 extends Category<V4> {
         'Authorization': 'Bearer $accessToken',
         'Content-Type': 'application/json;charset=utf-8',
       },
-      optionalQueries: ['media_id=$mediaId', 'media_type=${_getMediaType(MediaType.movie)}'],
+      optionalQueries: [
+        'media_id=$mediaId',
+        'media_type=${_getMediaType(MediaType.movie)}'
+      ],
     );
   }
 
