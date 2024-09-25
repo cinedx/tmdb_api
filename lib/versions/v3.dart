@@ -5,6 +5,7 @@ class V3 extends Version {
   late Tv _tv;
   late TvSeasons _tvSeasons;
   late TvEpisodes _tvEpisodes;
+  late TvEpisodeGroup _tvEpisodeGroup;
   late People _people;
   late Credit _credit;
   late Certification _certification;
@@ -31,7 +32,7 @@ class V3 extends Version {
   Tv get tv => _tv;
   TvSeasons get tvSeasons => _tvSeasons;
   TvEpisodes get tvEpisodes => _tvEpisodes;
-  // TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
+  TvEpisodeGroup get tvEpisodeGroup => _tvEpisodeGroup;
   People get people => _people;
   Credit get credit => _credit;
   Certification get certification => _certification;
@@ -61,7 +62,7 @@ class V3 extends Version {
     _movies = Movies(this);
     _tvSeasons = TvSeasons(this);
     _tvEpisodes = TvEpisodes(this);
-    // _tvEpisodeGroup = TvEpisodeGroup(this);
+    _tvEpisodeGroup = TvEpisodeGroup(this);
     _people = People(this);
     _credit = Credit(this);
     _certification = Certification(this);
